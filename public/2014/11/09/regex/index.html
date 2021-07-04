@@ -1,0 +1,824 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="regEx," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="This way up" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="正则表达式 是一种用来描述一定数量文本的模式，通过定义好的正则语句能匹配到目标文本集中所想要的文本。
+
+要在文本”phone number is 131-1111-1111”  中取到电话号码，首先分析电话的格式:第1个数字为1，第2个数字为3,5,8之中的一个,后面再加上9个数字组成。这些规则就可以来写正则表达式了: #1[385]\d-[\d]{4}-[\d]{4}#    ##的中间就是正则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://www.jcsama.com/2014/11/09/regex/index.html">
+<meta property="og:site_name" content="This way up">
+<meta property="og:description" content="正则表达式 是一种用来描述一定数量文本的模式，通过定义好的正则语句能匹配到目标文本集中所想要的文本。
+
+要在文本”phone number is 131-1111-1111”  中取到电话号码，首先分析电话的格式:第1个数字为1，第2个数字为3,5,8之中的一个,后面再加上9个数字组成。这些规则就可以来写正则表达式了: #1[385]\d-[\d]{4}-[\d]{4}#    ##的中间就是正则">
+<meta property="og:updated_time" content="2016-02-28T14:48:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="正则表达式 是一种用来描述一定数量文本的模式，通过定义好的正则语句能匹配到目标文本集中所想要的文本。
+
+要在文本”phone number is 131-1111-1111”  中取到电话号码，首先分析电话的格式:第1个数字为1，第2个数字为3,5,8之中的一个,后面再加上9个数字组成。这些规则就可以来写正则表达式了: #1[385]\d-[\d]{4}-[\d]{4}#    ##的中间就是正则">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: "post",
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 正则表达式 | This way up </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?c04a01ce7972fd0ba0198b9236d81f50";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">This way up</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">I am not perfect but I keep trying</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                正则表达式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-11-09T22:57:00+08:00" content="2014-11-09">
+              2014-11-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/regEx/" itemprop="url" rel="index">
+                    <span itemprop="name">regEx</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>正则表达式 是一种用来描述一定数量文本的模式，通过定义好的正则语句能匹配到目标文本集中所想要的文本。</p>
+</blockquote>
+<p>要在文本”phone number is 131-1111-1111”  中取到电话号码，首先分析电话的格式:第1个数字为1，第2个数字为3,5,8之中的一个,后面再加上9个数字组成。这些规则就可以来写正则表达式了: <code>#1[385]\d-[\d]{4}-[\d]{4}#</code>    ##的中间就是正则表达式。[]中是字符集\d，表示的是任意数字，而{4}则代表匹配前面的字符几次。下面系统地整理下正则表达式的使用方法：   </p>
+<h2 id="u5B57_u7B26_u96C6"><a href="#u5B57_u7B26_u96C6" class="headerlink" title="字符集"></a>字符集</h2><h3 id="5B_5D"><a href="#5B_5D" class="headerlink" title="[]"></a>[]</h3><p><code>[]</code>字符集：中括号中的是想匹配的字符的集合.</p>
+<p>如：<code>[abc]</code>的作用相当于匹配a字符或b字符或c字符，与<code>a|b|c</code>作用相同，顺便一说，<code>|</code>的意义是或。</p>
+<ul>
+<li><p><code>[]</code>的后面也可以加上<code>{time}</code>，来表示对这字符集匹配time次。  </p>
+</li>
+<li><p><code>[]</code>中若字符的类型相同，顺序连贯，也可以用’-‘符号将首尾连起来。如<code>[a-z][a-h][A-Z][0-9]</code>代表匹配第一个字符在a到z的26个字母中，第二个字符在a到h的8个字母中，第三个字符是0到9的10个数字中。</p>
+</li>
+</ul>
+<h3 id="5B_5E_5D"><a href="#5B_5E_5D" class="headerlink" title="[^]"></a>[^]</h3><p><code>[^]</code> 取反字符集：匹配所有不在括号中出现的字符。</p>
+<p>如<code>[^a]</code>匹配所有非a字符。用法可以参考字符集<code>[]</code>的用法，只是效果是取反的。</p>
+<h3 id="5E"><a href="#5E" class="headerlink" title="^"></a><code>^</code></h3><p><code>^</code>代表从文本的开始处匹配    如：<code>^abc</code>    匹配以abc为开始的文本</p>
+<h3 id="24"><a href="#24" class="headerlink" title="$"></a><code>$</code></h3><p><code>$</code>代表从文本的结束处匹配如：<code>abc$</code>匹配以abc为结束的文本</p>
+<h2 id="u7B80_u5316_u5B57_u7B26_u96C6"><a href="#u7B80_u5316_u5B57_u7B26_u96C6" class="headerlink" title="简化字符集"></a>简化字符集</h2><p>字符集可以按规律划分为以下几类，使用简化字符集可以提高写正则的效率。</p>
+<ul>
+<li><code>\d</code> : 数字字符集，匹配数字 = <code>[0-9]</code></li>
+<li><code>\s</code> : 任意的空白符 = <code>[ ]</code></li>
+<li><code>\w</code> : 数字或子母或下划线 = <code>[0-9a-zA-Z_]</code></li>
+<li><code>.</code>  : 除换行符以外的任意字符 = <code>[^\n\r]</code></li>
+<li><code>\b</code> : 匹配单词的开始或结束,<code>\babc\b</code> 匹配文本’this is  abc’中的单词abc</li>
+<li><code>\D</code> : 任意非数字字符 = <code>[^0-9]</code></li>
+<li><code>\S</code> : 任意非空白字符 = <code>[^ ]</code></li>
+<li><code>\W</code> : 任意不是字母数字或下划线的字符</li>
+<li><code>\B</code> : 任意不是单词的开头或结尾</li>
+</ul>
+<h2 id="u5339_u914D_u6B21_u6570"><a href="#u5339_u914D_u6B21_u6570" class="headerlink" title="匹配次数"></a>匹配次数</h2><ul>
+<li><p><code>+</code>    一次或多次。     如 <code>a+</code> 可以匹配a, aa, aaa, aaaa….</p>
+</li>
+<li><p><code>*</code>    0次或多次。 </p>
+</li>
+<li><p><code>?</code>    0次或一次。</p>
+</li>
+<li><p><code>{n}</code>   n次</p>
+</li>
+<li><p><code>{n,}</code>  n次或n次以上</p>
+</li>
+<li><p><code>{n,m}</code> n到m次</p>
+</li>
+</ul>
+<h2 id="u61D2_u60F0_u9650_u5236_u7B26"><a href="#u61D2_u60F0_u9650_u5236_u7B26" class="headerlink" title="懒惰限制符"></a>懒惰限制符</h2><ul>
+<li><p><code>*?</code>    重复任意次，但尽量少次。   相当于*的最少匹配次数  相当于’/a+?/‘ 匹配’aaaa’时会匹配出a</p>
+</li>
+<li><p><code>+?</code>    重复一至多次，尽量少次。   相当于+的最少匹配次数</p>
+</li>
+<li><p><code>??</code>    重复0次到1次，尽量少次。</p>
+</li>
+<li><p><code>{n,}?</code>  重复n次或n次以上，尽量少次。</p>
+</li>
+<li><p><code>{n,m}?</code> 重复n到m次，尽量少次。</p>
+</li>
+</ul>
+<h2 id="u7EC4_u4E0E_u5411_u540E_u5F15_u7528"><a href="#u7EC4_u4E0E_u5411_u540E_u5F15_u7528" class="headerlink" title="组与向后引用"></a>组与向后引用</h2><p>正则表达式中用()括起来的部分所匹配到的文本会分到单独的组中，若没名字则默认从1开始递增的值为组名，有设置名字的组则以名字为组名（如2所述），而且还能以组名代表式子向后引用：</p>
+<h3 id="u666E_u901A_u6355_u83B7_uFF1A"><a href="#u666E_u901A_u6355_u83B7_uFF1A" class="headerlink" title="普通捕获："></a>普通捕获：</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">(<span class="built_in">exp</span>)\<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>exp表示的是表达式，\1代表的是在xp式子匹配到的文本。</p>
+<p>example：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">([\w]&#123;<span class="number">3</span>&#125;).*\<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>表示是匹配到3个数字或字符或下划线组成的文本，存入组1中，中间匹配任意字符任意次数，后面再匹配组1中的文本，能匹配到的格式是： ‘abcdefabc’,’d_1d_1’，组1存的是’abc’,’d_1’,而后面组1又出现了，所以整个文本匹配成功。</p>
+<h3 id="u547D_u540D_u6355_u83B7"><a href="#u547D_u540D_u6355_u83B7" class="headerlink" title="命名捕获"></a>命名捕获</h3><figure class="highlight fortran"><table><tr><td class="code"><pre><span class="line">(?&lt;<span class="keyword">name</span>&gt;<span class="built_in">exp</span>)\k&lt;<span class="keyword">name</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>也可以写成(?’name’exp)\k’name’   与上1类似，将捕获的文本保存在组name中。name可以自己命名。</p>
+<p>而组的作用是什么呢？php中的正则匹配<code>preg_match_all</code>方法示例:</p>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line">echo <span class="string">'&lt;pre&gt;'</span>;</span><br><span class="line">//文本</span><br><span class="line"><span class="variable">$str</span> = <span class="string">'yes, that is ok!'</span>;                            </span><br><span class="line">//正则表达式   如果匹配到ok,则分配到anser组中</span><br><span class="line"><span class="variable">$regEx</span> = <span class="string">'#(?&lt;anser&gt;ok).*\k&lt;anser&gt;#'</span>;</span><br><span class="line"><span class="variable">$count</span> = preg_match_all(<span class="variable">$regEx</span>, <span class="variable">$str</span>, <span class="variable">$match</span>);       </span><br><span class="line">//匹配成功次数</span><br><span class="line">var_dump(<span class="variable">$count</span>);//<span class="number">1</span>                 </span><br><span class="line">//匹配结果集: <span class="keyword">array</span>(<span class="string">'0'</span>=&gt;<span class="string">'ok!'</span>,<span class="string">'anser'</span>=&gt;<span class="string">'ok'</span>,<span class="string">'1'</span>=&gt;<span class="string">'ok'</span>)</span><br><span class="line">var_dump(<span class="variable">$match</span>);                       </span><br><span class="line">//匹配结果集中的anser组</span><br><span class="line">var_dump(<span class="variable">$match</span>[<span class="string">'anser'</span>]);  //<span class="string">'ok'</span></span><br></pre></td></tr></table></figure>
+<p>从结果看到，组的作用是将结果分到设定的组名中，方便取数据，匹配成功的次数是1次，而且文本组有2个，一个是默认的1，一个是设置的anser.</p>
+<p>组的作用还可以引用在替换式中，用php中的正则替换<code>preg_replace</code>示例：</p>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line"><span class="variable">$regEx</span> = <span class="string">'#.*([\w]&#123;3,&#125;\.[\w]+\.[\w]&#123;2,3&#125;)#'</span>;</span><br><span class="line"><span class="variable">$str</span> = <span class="string">'link = www.example.com'</span>;</span><br><span class="line">//将<span class="variable">$str</span>的内容替换成<span class="string">"&lt;a href='\\1'&gt;"</span>,\\<span class="number">1</span>则代表正则中的分组<span class="number">1</span></span><br><span class="line"><span class="variable">$urlTag</span> = preg_replace(<span class="variable">$regEx</span>, <span class="string">"&lt;a href='\\1'&gt;"</span>, <span class="variable">$str</span>);  </span><br><span class="line">var_dump(<span class="variable">$urlTag</span>);</span><br><span class="line">//结果 ：string <span class="string">'&lt;a href='</span>www.example.com<span class="string">'&gt;'</span> (length=<span class="number">26</span>)</span><br></pre></td></tr></table></figure>
+<p>在这里注意的是双引号””中的引用需要多加一个\则组1变成\1，而单引号’’号中则还是\1。</p>
+<h3 id="u4E0D_u5206_u7EC4_u4E0D_u5F15_u7528_u5F0F_u62EC_u53F7"><a href="#u4E0D_u5206_u7EC4_u4E0D_u5F15_u7528_u5F0F_u62EC_u53F7" class="headerlink" title="不分组不引用式括号"></a>不分组不引用式括号</h3><ul>
+<li><code>(?:exp)</code>   有些表达式只是需要括号将内容括起来当一个小整体，这时用这种方法括起来就不会产生分组和引用，减少资源的浪费。</li>
+</ul>
+<h3 id="u96F6_u5BBD_u65AD_u8A00"><a href="#u96F6_u5BBD_u65AD_u8A00" class="headerlink" title="零宽断言"></a>零宽断言</h3><ul>
+<li><p><code>(?=exp)</code>     匹配exp表达式前面的内容，即以exp结尾的内容但又不包括exp。</p>
+</li>
+<li><p><code>(?&lt;=exp)</code>    匹配exp表达式后面的内容，即以exp开始的内容但又不包括exp。</p>
+</li>
+</ul>
+<h3 id="u8D1F_u5411_u96F6_u5BBD_u65AD_u8A00"><a href="#u8D1F_u5411_u96F6_u5BBD_u65AD_u8A00" class="headerlink" title="负向零宽断言"></a>负向零宽断言</h3><ul>
+<li><p><code>(?!exp)</code>     匹配不是以exp结尾的内容。</p>
+</li>
+<li><p><code>(?&lt;!exp)</code>    匹配不是以exp开始的内容。</p>
+</li>
+</ul>
+<h3 id="u6CE8_u91CA"><a href="#u6CE8_u91CA" class="headerlink" title="注释"></a>注释</h3><ul>
+<li><code>(?#comment)</code> 括号中的comment对表达式并无影响，只是注释作用。</li>
+</ul>
+<h2 id="u5904_u7406_u9009_u9879"><a href="#u5904_u7406_u9009_u9879" class="headerlink" title="处理选项"></a>处理选项</h2><ul>
+<li><p><code>i</code>    匹配时不区分字母大小写。 如’/text/i’    能匹配到TeXt</p>
+</li>
+<li><p><code>m</code>    多行模式  更改^和$的含义， 使它们分别在任意一行的行首和行尾匹配，而不仅仅在字符串的开关和结尾匹配，在此状态下$的含义是匹配\n之前的位置及字符串结束前的位置 。<br>如  ： 用 <code>#\w$#m</code>匹配文本 “abc\nabc\n”的匹配结果：c, c .(2次换行前的c都匹配到)。不加m,结果c </p>
+</li>
+<li><p><code>s</code>    单行模式.  更改’.’的含义，使它与每个字符依次匹配，包括换行符\n（.本来是匹配除换行符以外的文本）</p>
+</li>
+</ul>
+<h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><ul>
+<li><p>正则表达式中有特殊字符：( )[ ] \ ^ $ . ? + * | 想匹配这些字符的本体，需要加上\来换码。</p>
+</li>
+<li><p>正则表达式用单引号与双引号括时有些细节会有差别，双引号括时，引用分组如\1得写成\1，而单引号则是\1。</p>
+</li>
+<li><p>字符串中有\n\r\t等特殊字符时，字符串最外层需用双引号，而不是单引号。</p>
+</li>
+<li><p>匹配次数的重叠需谨慎，如`#([\w]{3}){4,6}#  所代表的是匹配12到18次的\w</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/regEx/" rel="tag">#regEx</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/09/25/php-filePath/" rel="next" title="PHP文件操作part1[文件路径]">
+                <i class="fa fa-chevron-left"></i> PHP文件操作part1[文件路径]
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/11/29/php-intMaxVal/" rel="prev" title="int值边界值">
+                int值边界值 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+    
+        <!-- UY BEGIN -->
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142799"></script>
+        <!-- UY END -->
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpeg"
+               alt="jceee" />
+          <p class="site-author-name" itemprop="name">jceee</p>
+          <p class="site-description motion-element" itemprop="description">做你害怕的事，然后你会发现，不过如此</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u96C6"><span class="nav-number">1.</span> <span class="nav-text">字符集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5B_5D"><span class="nav-number">1.1.</span> <span class="nav-text">[]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5B_5E_5D"><span class="nav-number">1.2.</span> <span class="nav-text">[^]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5E"><span class="nav-number">1.3.</span> <span class="nav-text">^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24"><span class="nav-number">1.4.</span> <span class="nav-text">$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7B80_u5316_u5B57_u7B26_u96C6"><span class="nav-number">2.</span> <span class="nav-text">简化字符集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5339_u914D_u6B21_u6570"><span class="nav-number">3.</span> <span class="nav-text">匹配次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u61D2_u60F0_u9650_u5236_u7B26"><span class="nav-number">4.</span> <span class="nav-text">懒惰限制符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7EC4_u4E0E_u5411_u540E_u5F15_u7528"><span class="nav-number">5.</span> <span class="nav-text">组与向后引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u666E_u901A_u6355_u83B7_uFF1A"><span class="nav-number">5.1.</span> <span class="nav-text">普通捕获：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u547D_u540D_u6355_u83B7"><span class="nav-number">5.2.</span> <span class="nav-text">命名捕获</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E0D_u5206_u7EC4_u4E0D_u5F15_u7528_u5F0F_u62EC_u53F7"><span class="nav-number">5.3.</span> <span class="nav-text">不分组不引用式括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u96F6_u5BBD_u65AD_u8A00"><span class="nav-number">5.4.</span> <span class="nav-text">零宽断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8D1F_u5411_u96F6_u5BBD_u65AD_u8A00"><span class="nav-number">5.5.</span> <span class="nav-text">负向零宽断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6CE8_u91CA"><span class="nav-number">5.6.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5904_u7406_u9009_u9879"><span class="nav-number">6.</span> <span class="nav-text">处理选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">7.</span> <span class="nav-text">注意</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jceee</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.4.5.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.4.5.2"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.4.5.2"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.4.5.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
