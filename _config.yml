@@ -5,7 +5,7 @@
 # Site
 title: This way up #标题
 subtitle: I am not perfect but I keep trying #副标题
-description: be better #网站描述
+description: be better
 author: jceee
 language: zh-Hans
 email: jceee@foxmail.com
@@ -72,7 +72,6 @@ theme: next
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  ##repo: https://github.com/jceee/jceee.github.io
-  repo: git@github.com:jceee/jceee.github.io.git
+  repo: https://github.com/jceee/jceee.github.io
   branch: master
   message: hexo deploy

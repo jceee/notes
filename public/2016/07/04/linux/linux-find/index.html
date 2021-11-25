@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="linux,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="This way up" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2">
+
+
+
+
+
+
+<meta name="description" content="find是linux 命令，它将档案系统内符合 expression 的档案列出来。你可以指要档案的名称、类别、时间、大小、权限等不同资讯的组合，只有完全相符的才会被列出来。  语法$ find path -option [ -print ] [ -exec -ok command ] &amp;#123;&amp;#125; \; 下边列举常用的一些条件 path查找单个目录： $ find /tmp 查找多">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux-find">
+<meta property="og:url" content="http://www.jcsama.com/2016/07/04/linux/linux-find/index.html">
+<meta property="og:site_name" content="This way up">
+<meta property="og:description" content="find是linux 命令，它将档案系统内符合 expression 的档案列出来。你可以指要档案的名称、类别、时间、大小、权限等不同资讯的组合，只有完全相符的才会被列出来。  语法$ find path -option [ -print ] [ -exec -ok command ] &amp;#123;&amp;#125; \; 下边列举常用的一些条件 path查找单个目录： $ find /tmp 查找多">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-08-09T06:15:05.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux-find">
+<meta name="twitter:description" content="find是linux 命令，它将档案系统内符合 expression 的档案列出来。你可以指要档案的名称、类别、时间、大小、权限等不同资讯的组合，只有完全相符的才会被列出来。  语法$ find path -option [ -print ] [ -exec -ok command ] &amp;#123;&amp;#125; \; 下边列举常用的一些条件 path查找单个目录： $ find /tmp 查找多">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: "post",
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> linux-find | This way up </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?c04a01ce7972fd0ba0198b9236d81f50";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">This way up</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">I am not perfect but I keep trying</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                linux-find
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-04T15:02:12+08:00" content="2016-07-04">
+              2016-07-04
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>find是linux 命令，它将档案系统内符合 expression 的档案列出来。你可以指要档案的名称、类别、时间、大小、权限等不同资讯的组合，只有完全相符的才会被列出来。</p>
+</blockquote>
+<h2 id="u8BED_u6CD5"><a href="#u8BED_u6CD5" class="headerlink" title="语法"></a>语法</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ <span class="builtin-name">find</span> path -option [ -<span class="builtin-name">print</span> ] [ -exec -ok command ] &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<p>下边列举常用的一些条件</p>
+<h2 id="path"><a href="#path" class="headerlink" title="path"></a>path</h2><p>查找单个目录：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">$ <span class="builtin-name">find</span> /tmp</span><br></pre></td></tr></table></figure>
+<p>查找多个目录:</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">$ find <span class="string">/tmp</span> <span class="string">/opt</span> <span class="string">/etc</span></span><br></pre></td></tr></table></figure>
+<h2 id="option"><a href="#option" class="headerlink" title="option"></a>option</h2><h3 id="u6309_u6863_u6848_u540D"><a href="#u6309_u6863_u6848_u540D" class="headerlink" title="按档案名"></a>按档案名</h3><p>查找后缀为<code>.md</code> 的档案</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -name "*.<span class="built_in">md</span>"</span><br></pre></td></tr></table></figure>
+<p>查找后缀为<code>.md</code>的档案，并不区分大小写(可以是<code>.MD</code>,<code>.Md</code>,<code>.mD</code>)</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -iname "*.<span class="built_in">md</span>"</span><br></pre></td></tr></table></figure>
+<h3 id="u6309_u6863_u6848_u7C7B_u578B"><a href="#u6309_u6863_u6848_u7C7B_u578B" class="headerlink" title="按档案类型"></a>按档案类型</h3><p>文件夹</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -<span class="built_in">type</span> d</span><br></pre></td></tr></table></figure>
+<p>符号连接</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -<span class="built_in">type</span> l</span><br></pre></td></tr></table></figure>
+<p>一般档案</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -<span class="built_in">type</span> f</span><br></pre></td></tr></table></figure>
+<p>字形装置</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -<span class="built_in">type</span> c</span><br></pre></td></tr></table></figure>
+<p>区块装置</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -<span class="built_in">type</span> b</span><br></pre></td></tr></table></figure>
+<p>具名贮列</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -<span class="built_in">type</span> p</span><br></pre></td></tr></table></figure>
+<p>socket</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -<span class="built_in">type</span> s</span><br></pre></td></tr></table></figure>
+<h3 id="u65F6_u95F4"><a href="#u65F6_u95F4" class="headerlink" title="时间"></a>时间</h3><p>类型</p>
+<ul>
+<li>a (access) 访问时间</li>
+<li>c (change) 状态改变时间(如修改,chmod,chown)</li>
+<li>m (modification) 修改时间</li>
+</ul>
+<p>单位</p>
+<ul>
+<li>min 以分钟为单位  </li>
+<li>time 以天为单位  </li>
+</ul>
+<p>量</p>
+<ul>
+<li>-n  在n单位时间内  </li>
+<li>+n  在n单位时间前  </li>
+<li>n   在n单位时间中  </li>
+</ul>
+<p>在n分钟前被访问|修改|改变过的档案</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -amin +n</span><br><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -mmin +n</span><br><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -cmin +n</span><br></pre></td></tr></table></figure>
+<p>在n分钟内被访问|修改|改变过的档案</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -amin -n</span><br><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -mmin -n</span><br><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -cmin -n</span><br></pre></td></tr></table></figure>
+<p>在前n分钟被访问|修改|改变过的档案</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -amin n</span><br><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -mmin n</span><br><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -cmin n</span><br></pre></td></tr></table></figure>
+<p>最近[n天内|n天前|前n天]被访问|修改|改变过的档案</p>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> path -atime [-<span class="built_in">n</span>|+<span class="built_in">n</span>|<span class="built_in">n</span>]</span><br><span class="line">$ <span class="built_in">find</span> path -mtime [-<span class="built_in">n</span>|+<span class="built_in">n</span>|<span class="built_in">n</span>]</span><br><span class="line">$ <span class="built_in">find</span> path -ctime [-<span class="built_in">n</span>|+<span class="built_in">n</span>|<span class="built_in">n</span>]</span><br></pre></td></tr></table></figure>
+<p>比file档案更晚被访问|修改|改变过的档案</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ <span class="keyword">find</span> path -anewer <span class="keyword">file</span></span><br><span class="line">$ <span class="keyword">find</span> path -mnewer <span class="keyword">file</span></span><br><span class="line">$ <span class="keyword">find</span> path -<span class="keyword">cnewer</span> <span class="keyword">file</span></span><br></pre></td></tr></table></figure>
+<h3 id="u8DEF_u5F84"><a href="#u8DEF_u5F84" class="headerlink" title="路径"></a>路径</h3><p>路径中含有path</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -<span class="built_in">path</span> "*<span class="built_in">path</span>*"</span><br></pre></td></tr></table></figure>
+<p>路径含有path并不区分大小写</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -ipath "*<span class="built_in">PATH</span>*"</span><br></pre></td></tr></table></figure>
+<h3 id="u5927_u5C0F"><a href="#u5927_u5C0F" class="headerlink" title="大小"></a>大小</h3><p>查找大于nk,小于nk的档案</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> path -<span class="built_in">size</span> +nk</span><br><span class="line">$ <span class="built_in">find</span> path -<span class="built_in">size</span> -nk</span><br></pre></td></tr></table></figure>
+<p>空档案</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -empty</span><br></pre></td></tr></table></figure>
+<h3 id="u6743_u9650"><a href="#u6743_u9650" class="headerlink" title="权限"></a>权限</h3><p>mode的值 对应3种用户(所属用户，所属组，其他)的rwx权限 </p>
+<ul>
+<li>-mode 3种用户的权限都跟mode值对上，则成功（如644对444|644）</li>
+<li>+mode 3种用户的权限只要有一个对上，则成功（如644能对622等）</li>
+<li>mode 3种用户的权限都要跟mode准确对上才成功（如222对222）</li>
+</ul>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -perm -<span class="built_in">mode</span></span><br><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -perm +<span class="built_in">mode</span></span><br><span class="line">$ <span class="built_in">find</span> <span class="built_in">path</span> -perm <span class="built_in">mode</span></span><br></pre></td></tr></table></figure>
+<h2 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h2><p>需要对搜索结果执行shell命令则用<code>-exec</code>,如</p>
+<figure class="highlight elm"><table><tr><td class="code"><pre><span class="line">$ find / -<span class="keyword">type</span> f -exec ls -lah &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><p>把小于2k的文件搬到/tmp目录</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">find</span> path -<span class="built_in">size</span> <span class="number">-2</span>k -exec mv &#123;&#125; /tmp \;</span><br></pre></td></tr></table></figure>
+<p>找出档案名含有’abc’ 的普通档案</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ <span class="keyword">find</span> path -name <span class="string">'*abc*'</span> -<span class="built_in">type</span> <span class="keyword">f</span> </span><br><span class="line">$ <span class="keyword">find</span> -<span class="built_in">type</span> <span class="keyword">f</span> | <span class="keyword">grep</span> <span class="keyword">abc</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag">#linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/02/linux/linux-nohup/" rel="next" title="linux-nohup">
+                <i class="fa fa-chevron-left"></i> linux-nohup
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/14/php/php-config/" rel="prev" title="php-config">
+                php-config <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+    
+        <!-- UY BEGIN -->
+        <div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142799"></script>
+        <!-- UY END -->
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="jceee">
+          <p class="site-author-name" itemprop="name">jceee</p>
+          <p class="site-description motion-element" itemprop="description">be better</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u8BED_u6CD5"><span class="nav-number">1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#path"><span class="nav-number">2.</span> <span class="nav-text">path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#option"><span class="nav-number">3.</span> <span class="nav-text">option</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6309_u6863_u6848_u540D"><span class="nav-number">3.1.</span> <span class="nav-text">按档案名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6309_u6863_u6848_u7C7B_u578B"><span class="nav-number">3.2.</span> <span class="nav-text">按档案类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u65F6_u95F4"><span class="nav-number">3.3.</span> <span class="nav-text">时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u8DEF_u5F84"><span class="nav-number">3.4.</span> <span class="nav-text">路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5927_u5C0F"><span class="nav-number">3.5.</span> <span class="nav-text">大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6743_u9650"><span class="nav-number">3.6.</span> <span class="nav-text">权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exec"><span class="nav-number">4.</span> <span class="nav-text">exec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">5.</span> <span class="nav-text">example</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jceee</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.4.5.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.4.5.2"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.4.5.2"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.4.5.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
