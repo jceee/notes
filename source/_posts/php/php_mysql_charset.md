@@ -1,7 +1,7 @@
 title: 一个环境引发的乱码问题
 date: 2021-09-11 18:13
 categories: php  
-tags: php mysql
+tags:  [php,mysql]  
 
 ---
 

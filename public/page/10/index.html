@@ -243,8 +243,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/09/06/js/js-qrcode/" itemprop="url">
-                  通过二维码开放平台的API快速生成二维码
+                <a class="post-title-link" href="/2014/12/28/php/php-authoload/" itemprop="url">
+                  PHP的自动加载
                 </a>
               
             
@@ -257,8 +257,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-09-06T17:06:00+08:00" content="2014-09-06">
-              2014-09-06
+            <time itemprop="dateCreated" datetime="2014-12-28T18:13:00+08:00" content="2014-12-28">
+              2014-12-28
             </time>
           </span>
 
@@ -271,8 +271,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
                   </a>
                 </span>
 
@@ -304,18 +304,13 @@
       
         
           
-          
-二维码能快速地提高手机访问网站的速度，而不用麻烦地手动敲打地址。这次给大家分享一个很方便的快速生成二维码的方法。
-
-现在很多网站都有通过扫二维码用手机连接的功能，联图网的二维码开放平台开放了一个生成二维码图片的Api,挺方便使用的。闲着无聊，写了个前台快速生成二维码的方法。
-html代码如下:(二维码将生成在这div下)
-&lt;div id='qrcode'&gt;&lt;/div&gt;
-js代码如下：
-var qrCode = &#123;    //初始化属性    jsonData:
+          以前php的加载是通过include(),require()等方法来加载外部文件，之后再通过实例调用方法或直接调用静态方法，而这样子写引入语句实在很麻烦，有的框架会将特定路径的文件全部引入，直接实例化就能使用，但这样一来有的类包不一定用到，写的类包越多的时候，加载的东西就不少了，影响程序的性能。
+这里介绍一下php自带的标准库SPL(Standard PHP Library)的自动加载:
+function __autoload($classname)&#123;	$classpath = './
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/06/js/js-qrcode/#more" rel="contents">
+            <a class="btn" href="/2014/12/28/php/php-authoload/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -358,8 +353,8 @@ var qrCode = &#123;    //初始化属性    jsonData:
             
               
                 
-                <a class="post-title-link" href="/2014/03/15/js/js-createElement/" itemprop="url">
-                  javascript创建DOM元素
+                <a class="post-title-link" href="/2014/12/28/js/js-ajax/" itemprop="url">
+                  Ajax中的2个需要注意的地方
                 </a>
               
             
@@ -372,8 +367,8 @@ var qrCode = &#123;    //初始化属性    jsonData:
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-15T15:49:00+08:00" content="2014-03-15">
-              2014-03-15
+            <time itemprop="dateCreated" datetime="2014-12-28T16:49:00+08:00" content="2014-12-28">
+              2014-12-28
             </time>
           </span>
 
@@ -419,12 +414,356 @@ var qrCode = &#123;    //初始化属性    jsonData:
       
         
           
-          2种创建DOM元素的方法
-创建一个element/** * 赋值obj对象为一个创建input元素 * 设置obj元素属性，可以直接以`.`赋值，也可以用`setAttribute` */	var obj = document.createElement('input');	obj.name = 'name';obj.value = 'value';obj.setAttribute('id','idname');obj.setAttribute('type','typename');/** * 
+          
+Ajax在WEB程序中调用api的利器，这儿记录下在使用过程中发现2个容易忽略而导致错误的地方，这两个地方也是一些javascript的基础知识，也可以当作重温一下javascript的基础
+
+异步获取数据异步是指，在ajax发送请求后，会继续执行下面的方法，直到请求返回时，再回过头来执行ajax中的回调方法。这也是ajax异步的强大之处，不会因为请求而影响程序其他任务的执行时间。但如果你下面执行的代码中，有需要请求返回的数据，那就会发生错误了，因为请求还没回来，你的代码就执行了。如下:
+ $
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/03/15/js/js-createElement/#more" rel="contents">
+            <a class="btn" href="/2014/12/28/js/js-ajax/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/11/29/php/php-intMaxVal/" itemprop="url">
+                  int值边界值
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-11-29T18:24:00+08:00" content="2014-11-29">
+              2014-11-29
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          在代码中我将接收的手机号码用intval()转成整形，发现返回的整形数据都变成一个值：
+var_dump(intval('13800138000'));//  int 2147483647
+之前从来没发生过这种事情，为何intval调皮了，于是查了一下intval()，发现这个值是32位系统中int的边界值。
+
+在32位的系统环境下，intval边界值是-2147483648到2147483647(2^32)；
+
+在64位的系统环境下，intval边界值是-9223372036854775808
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/29/php/php-intMaxVal/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/11/09/regEx/regex/" itemprop="url">
+                  正则表达式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-11-09T22:57:00+08:00" content="2014-11-09">
+              2014-11-09
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/regEx/" itemprop="url" rel="index">
+                    <span itemprop="name">regEx</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+正则表达式 是一种用来描述一定数量文本的模式，通过定义好的正则语句能匹配到目标文本集中所想要的文本。
+
+要在文本”phone number is 131-1111-1111”  中取到电话号码，首先分析电话的格式:第1个数字为1，第2个数字为3,5,8之中的一个,后面再加上9个数字组成。这些规则就可以来写正则表达式了: #1[385]\d-[\d]{4}-[\d]{4}#    ##的中间就是正则表达式。[]中是字符集\d，表示的是任意数字，而{4}则代表匹配前面的字符几次。下面系统地整理下正
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/09/regEx/regex/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/09/25/php/php-filePath/" itemprop="url">
+                  PHP文件操作part1[文件路径]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-09-25T22:07:00+08:00" content="2014-09-25">
+              2014-09-25
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          绝对路径与相对路径
+文件函数最常用的参数是什么？路径。而路径参数大致分两种：绝对路径和相对路径。
+
+绝对路径 : 从盘开始的路径example:
+/Users/jceee/code/app/www/index.php（app项目中的index.php文件）
+相对路径 : 以当前文件为基准所组成的路径example:
+./index.php(相对当前目录)../index.php(相对上级目录)
+获取绝对路径realpathphp中有通过相对路径获得绝对路径的方法realpath($path)
+v
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/25/php/php-filePath/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -451,7 +790,7 @@ var qrCode = &#123;    //初始化属性    jsonData:
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -490,14 +829,14 @@ var qrCode = &#123;    //初始化属性    jsonData:
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
@@ -548,7 +887,7 @@ var qrCode = &#123;    //初始化属性    jsonData:
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

@@ -243,8 +243,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/12/28/js/js-ajax/" itemprop="url">
-                  Ajax中的2个需要注意的地方
+                <a class="post-title-link" href="/2015/07/29/php/php-HTTP-RAW-POST-DATA/" itemprop="url">
+                  $GLOBALS ["HTTP_RAW_POST_DATA"]为空
                 </a>
               
             
@@ -257,120 +257,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-12-28T16:49:00+08:00" content="2014-12-28">
-              2014-12-28
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-Ajax在WEB程序中调用api的利器，这儿记录下在使用过程中发现2个容易忽略而导致错误的地方，这两个地方也是一些javascript的基础知识，也可以当作重温一下javascript的基础
-
-异步获取数据异步是指，在ajax发送请求后，会继续执行下面的方法，直到请求返回时，再回过头来执行ajax中的回调方法。这也是ajax异步的强大之处，不会因为请求而影响程序其他任务的执行时间。但如果你下面执行的代码中，有需要请求返回的数据，那就会发生错误了，因为请求还没回来，你的代码就执行了。如下:
- $
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/12/28/js/js-ajax/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/11/29/php/php-intMaxVal/" itemprop="url">
-                  int值边界值
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-11-29T18:24:00+08:00" content="2014-11-29">
-              2014-11-29
+            <time itemprop="dateCreated" datetime="2015-07-29T22:28:00+08:00" content="2015-07-29">
+              2015-07-29
             </time>
           </span>
 
@@ -416,17 +304,11 @@ Ajax在WEB程序中调用api的利器，这儿记录下在使用过程中发现2
       
         
           
-          在代码中我将接收的手机号码用intval()转成整形，发现返回的整形数据都变成一个值：
-var_dump(intval('13800138000'));//  int 2147483647
-之前从来没发生过这种事情，为何intval调皮了，于是查了一下intval()，发现这个值是32位系统中int的边界值。
-
-在32位的系统环境下，intval边界值是-2147483648到2147483647(2^32)；
-
-在64位的系统环境下，intval边界值是-9223372036854775808
+          $GLOBALS[&quot;HTTP_RAW_POST_DATA&quot;] $_POST file_get_contents(&#39;php://input&#39;)$GLOBALS[&quot;HTTP_RAW_POST_DATA&quot;]跟$_POST,file_get_contents(&#39;php://input&#39;)的效果差不多，用 $GLOBALS [&quot;HTTP_RAW_POST_DATA&quot;]或file_get_contents(&#39;
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/11/29/php/php-intMaxVal/#more" rel="contents">
+            <a class="btn" href="/2015/07/29/php/php-HTTP-RAW-POST-DATA/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -469,8 +351,8 @@ var_dump(intval('13800138000'));//  int 2147483647
             
               
                 
-                <a class="post-title-link" href="/2014/11/09/regEx/regex/" itemprop="url">
-                  正则表达式
+                <a class="post-title-link" href="/2015/07/05/mysql/mysql-timeMethod/" itemprop="url">
+                  mysql的时间转换函数
                 </a>
               
             
@@ -483,235 +365,8 @@ var_dump(intval('13800138000'));//  int 2147483647
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-11-09T22:57:00+08:00" content="2014-11-09">
-              2014-11-09
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/regEx/" itemprop="url" rel="index">
-                    <span itemprop="name">regEx</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-正则表达式 是一种用来描述一定数量文本的模式，通过定义好的正则语句能匹配到目标文本集中所想要的文本。
-
-要在文本”phone number is 131-1111-1111”  中取到电话号码，首先分析电话的格式:第1个数字为1，第2个数字为3,5,8之中的一个,后面再加上9个数字组成。这些规则就可以来写正则表达式了: #1[385]\d-[\d]{4}-[\d]{4}#    ##的中间就是正则表达式。[]中是字符集\d，表示的是任意数字，而{4}则代表匹配前面的字符几次。下面系统地整理下正
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/11/09/regEx/regex/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/25/php/php-filePath/" itemprop="url">
-                  PHP文件操作part1[文件路径]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-09-25T22:07:00+08:00" content="2014-09-25">
-              2014-09-25
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          绝对路径与相对路径
-文件函数最常用的参数是什么？路径。而路径参数大致分两种：绝对路径和相对路径。
-
-绝对路径 : 从盘开始的路径example:
-/Users/jceee/code/app/www/index.php（app项目中的index.php文件）
-相对路径 : 以当前文件为基准所组成的路径example:
-./index.php(相对当前目录)../index.php(相对上级目录)
-获取绝对路径realpathphp中有通过相对路径获得绝对路径的方法realpath($path)
-v
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/25/php/php-filePath/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/14/mysql/mysql-insertMoreThanOne/" itemprop="url">
-                  多条insert语句合并
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-09-14T22:37:00+08:00" content="2014-09-14">
-              2014-09-14
+            <time itemprop="dateCreated" datetime="2015-07-05T21:42:00+08:00" content="2015-07-05">
+              2015-07-05
             </time>
           </span>
 
@@ -757,35 +412,409 @@ v
       
         
           
-          表a君Article内容如下：
+          格式化时间戳FROM_UNIXTIMEFROM_UNIXTIME(unix_timestamp, format)第一个参数是时间戳格式。 第二个是最终想转换的格式，如
+SELECT FROM_UNIXTIME(1436102304,'%Y年%m月%d日') as date;
+结果:
+date     :       2015年07月05日
+字符串转换unix时间戳UNIX_TIMESTAMPUNIX_TIMESTAMP(date) 是将时间转化为时间戳，如 
+SELECT UNIX_TIMEST
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/05/mysql/mysql-timeMethod/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 
 
+    
+      
 
-key
-value
+  
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/11/php/php-call/" itemprop="url">
+                  php魔术方法__call
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-11T17:34:00+08:00" content="2015-04-11">
+              2015-04-11
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+_call是魔术方法中的一个，当程序调用到当前类中未声明或没权限调用的方法时，就会调用__call方法.
+
+class test&#123;	public function emptyFunc()	&#123;		$getArgs = func_get_args();		$funcName = $getArgs[0];		//$params = array_slice($getArgs, 1);		//var_dump($params);  // this is params         
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/11/php/php-call/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/11/mysql/mysql-distinct/" itemprop="url">
+                  distinct 排重查询
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-01-11T21:06:35+08:00" content="2015-01-11">
+              2015-01-11
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+distinct 的作用是根据某字段或某些字段去除重复数据  
+
+ example,student表结构数据如下    
 
 
 
 id
-int
+class
+name   
+
+
+
+
+1
+1
+jacky
+
+
+2
+1
+jacky
+
+
+3
+1
+tom
+
+
+4
+2
+alen
+
+
+5
+2
+jacky
+
+
+6
+4
+jacky
+
+
+
+查询查询粟子1:单个排重select distinct name from student
+搜索结果：
+
 
 
 name
-string
-
-
-title
-strit
 
 
 
-现在，我们有一批数据需要插入表A,那么来了，按照我们普通的方式，排队1条1条来：
-INSERT INTO `Article`(`name`,`title`)VALUES ('name1','title1');INSERT INTO `Article`(`name`,`title`)VALUES ('name2','title2');INSERT INTO 
+
+jacky
+
+
+tom
+
+
+alen
+
+
+
+对name进行去
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/09/14/mysql/mysql-insertMoreThanOne/#more" rel="contents">
+            <a class="btn" href="/2015/01/11/mysql/mysql-distinct/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/09/php/php-sortArrByfield/" itemprop="url">
+                  根据某字段对多维数组进行排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-01-09T21:06:35+08:00" content="2015-01-09">
+              2015-01-09
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index">
+                    <span itemprop="name">code</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          根据某字段对多维数组进行排序，在看到array_multisort方法的作用时突然想到，可以用来做这个方法
+function sortArrByField(&amp;$array, $field, $isDesc = false)&#123;     $fieldArr = array();    foreach ($array as $k =&gt; $v) &#123;        $fieldArr[$k] = $v[$field];    &#125;    $sort = $isDe
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/01/09/php/php-sortArrByfield/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -812,7 +841,7 @@ INSERT INTO `Article`(`name`,`title`)VALUES ('name1','title1');INSERT INTO `Arti
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -851,14 +880,14 @@ INSERT INTO `Article`(`name`,`title`)VALUES ('name1','title1');INSERT INTO `Arti
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
@@ -909,7 +938,7 @@ INSERT INTO `Article`(`name`,`title`)VALUES ('name1','title1');INSERT INTO `Arti
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

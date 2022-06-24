@@ -1,6 +1,6 @@
 title: 设置HOMEBREW_GITHUB_API_TOKEN
 date: 2015-10-01 20:50
-categories: 工作记录
+categories: Mac
 tags: homebrew
 ---
 

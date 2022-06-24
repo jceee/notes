@@ -243,8 +243,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/19/linux/linux-lnmp/" itemprop="url">
-                  Ubuntu下配置lnmp
+                <a class="post-title-link" href="/2019/04/23/golang/defer/" itemprop="url">
+                  GO学习笔记--defer篇
                 </a>
               
             
@@ -257,8 +257,454 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-19T22:10:25+08:00" content="2016-06-19">
-              2016-06-19
+            <time itemprop="dateCreated" datetime="2019-04-23T22:33:16+08:00" content="2019-04-23">
+              2019-04-23
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/golang/" itemprop="url" rel="index">
+                    <span itemprop="name">golang</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          什么是deferdefer特别栈，后进先出
+什么场景下用defer程序员在编程的时候，经常需要打开一些资源，比如数据库连接、文件、锁等，这些资源需要在用完之后释放掉，否则会造成内存泄漏。
+func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(err, "\n")		return	&#125;	defer func() &#123;		fmt.Print("do close \n")		clo
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2019/04/23/golang/defer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/11/20/IDE/vscode/go-ide-vscode/" itemprop="url">
+                  GO语言IDE篇--Vscode (Mac)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-11-20T23:26:46+08:00" content="2018-11-20">
+              2018-11-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+工欲善其事，必先利其器—-《论语·卫灵公》
+
+前言当我们开始学习一个编程语言时，第一步就是选择一款编码工具，我们使用工具的主要目的是提高我们的效率： 
+
+语法高亮(基本都有)
+支持DEBUG
+插件丰富
+集成终端
+颜值（这个也很重要啊喂！）
+
+对比多款式工具后，jetbrains系列收费，LiteIDE略丑，Vim学习曲线高…最后我选择了满足了我的所有要求的Vscode，下面开始撸之～
+安装GO环境这里假设我们已经安装完基础环境并配置好了环境变量，略过…
+安装vscodevscode官网下之
+安
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/11/20/IDE/vscode/go-ide-vscode/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/30/java/java-bean/" itemprop="url">
+                  java学习笔记[bean注解]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-03-30T22:22:53+08:00" content="2018-03-30">
+              2018-03-30
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+java的注解可以实现很多功能，如类的声明，属性声明，注入声明，配置…等等，这里对其作用做了笔记
+
+Bean的声明
+@Component 通用，无明确角色
+@Repository. 数据访问层（Dao）层注解
+@Controller  Controller层
+@Service  业务逻辑Service层
+@Configuration 配置文件
+
+Scope作用域类型@Scope(“single”)    
+
+single          每个IOC容器对一个bean定义创建唯一实例 
+pro
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2018/03/30/java/java-bean/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/14/php/php-config/" itemprop="url">
+                  php-config
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-14T17:39:00+08:00" content="2016-10-14">
+              2016-10-14
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+php配置
+
+PHP config隐藏php版本号通常没经验修改配置的php服务，在请求结束时返回的Response头中会带有php的版本信息，如：
+cache-control:no-cacheConnection:keep-aliveContent-Type:text/html; charset=UTF-8date:Fri, 14 Oct 2016 09:44:22 GMTServer:nginxTransfer-Encoding:chunkedX-Powered-By:PHP/5.6.16
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/14/php/php-config/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/04/linux/linux-find/" itemprop="url">
+                  linux-find
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-04T15:02:12+08:00" content="2016-07-04">
+              2016-07-04
             </time>
           </span>
 
@@ -305,464 +751,20 @@
         
           
           
-环境：Ubuntu Linux 14.04
+find是linux 命令，它将档案系统内符合 expression 的档案列出来。你可以指要档案的名称、类别、时间、大小、权限等不同资讯的组合，只有完全相符的才会被列出来。
 
-安装软件仓库管理器$ sudo apt-get install python-software-properties;
-安装PHP安装php及扩展$ sudo apt-get install python-software-properties;$ sudo add-apt-repository ppa:ondrej/php5-5.6;$ sudo apt-get update$ sudo apt-get install php5-fpm php5
+语法$ find path -option [ -print ] [ -exec -ok command ] &#123;&#125; \;
+下边列举常用的一些条件
+path查找单个目录：
+$ find /tmp
+查找多个目录:
+$ find /tmp /opt /etc
+option按档案名查找后缀为.md 的档案
+
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/19/linux/linux-lnmp/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/10/mysql/mysql-on-duplice-key-update/" itemprop="url">
-                  mysql[ON DUPLICE KEY UPDATE]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-10T17:37:51+08:00" content="2016-06-10">
-              2016-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ON DUPLICE KEY UPDATE[ON DUPLICE KEY UPDATE] 用于INSERT语句后面，作用是在执行INSERT时，若UNIQUE索引或者PRIMARY KEY出现重复时，则在出现重复值的行执行UPDATE，否则按正常INSERT语句执行.
-测试表表结构：
-CREATE TABLE `news` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `title` varchar(70) COLLATE utf8_unicode_ci D
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/10/mysql/mysql-on-duplice-key-update/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/22/mysql/mysql-strimg/" itemprop="url">
-                  mysql 字符串函数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-22T22:58:20+08:00" content="2016-05-22">
-              2016-05-22
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          test table使用一个测试表：
-mysql&gt; select * from news ;+----+--------+-------+| id | title  | body  |+----+--------+-------+|  1 | title1 | NULL  ||  2 | title2 | body2 || 12 | title1 | body3 || 13 | title1 | body4 || 14 | NULL   | body5 |+----+--------+--
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/22/mysql/mysql-strimg/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/10/linux/linux-curl/" itemprop="url">
-                  linux-curl
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T22:26:50+08:00" content="2016-04-10">
-              2016-04-10
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本。
-
-获取url内容$ curl url
-保存内容$ curl -o filename url$ curl url &gt;&gt; filename
-显示下载进度条-#$ curl -# -o filename url
-获取response header$ curl -i url
-POST数据$ curl -d "key1=val1&a
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/10/linux/linux-curl/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/04/patterns/pattern-pub-sub/" itemprop="url">
-                  订阅发布者模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-04T17:21:45+08:00" content="2016-04-04">
-              2016-04-04
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/pattern/" itemprop="url" rel="index">
-                    <span itemprop="name">pattern</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-发布/ 订阅者模式（Publish/Subscribe）有两个参与者：发布者和订阅者。发布者创建某个信息，订阅者绑定这个信道，当发布者有消息发布至该信道时，订阅者就会接收到一个通知。最重要的一点是，发布者和订阅者是完全解耦的，彼此并不知晓对方的存在一种消息模式。
-
-订阅发布者我们创建一个简单的订阅发布者，基本的4个方法：
-
-registerSubscriber 注册订阅者
-removeSubscriber   订阅的取消
-publish            消息推送
-sortList    
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/04/patterns/pattern-pub-sub/#more" rel="contents">
+            <a class="btn" href="/2016/07/04/linux/linux-find/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -789,7 +791,7 @@ sortList
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -828,14 +830,14 @@ sortList
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
@@ -886,7 +888,7 @@ sortList
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

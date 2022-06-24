@@ -243,8 +243,8 @@
             
               
                 
-                <a class="post-title-link" href="/2021/10/03/js/hexo/hexo-gitpage-404/" itemprop="url">
-                  hexo gitpage 404
+                <a class="post-title-link" href="/2022/04/09/mysql/mysqlslap/" itemprop="url">
+                  使用mysqlslap回放Mysql流量
                 </a>
               
             
@@ -257,8 +257,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2021-10-03T21:30:20+08:00" content="2021-10-03">
-              2021-10-03
+            <time itemprop="dateCreated" datetime="2022-04-09T17:40:00+08:00" content="2022-04-09">
+              2022-04-09
             </time>
           </span>
 
@@ -271,8 +271,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
                   </a>
                 </span>
 
@@ -304,24 +304,21 @@
       
         
           
-          一个奇怪的问题
-Step 1 更新了一篇新的post;
+          背景mysqlslap简介mysqlslap 是 MySQL 从 5.1.4 版开始官方自带的一个压力测试工具。
+功能：它通过模拟多个并发客户端访问 MySQL 来执行压力测试，我们通过结果信息可以了解数据库的性能状况。
+适用场景
+优化了操作系统的内核参数后，是否提升了性能
+优化了Mysql参数，性能变化
+服务器的硬件资源能够支持多大的访问压力
 
-Step 2 使用hexo s本地页面显示正常 ;
+压测流程流量录制打开原Mysql服务的general log，录制一定时间的流量
+注意：
 
-Step 3 使用hexo g -d命令执行正确;
-
-Step 4 打开对应的Git page，发现404
-
-
-为什么会出现
-首先从最后环节开始排查，使用hexo d --debug查看部署是否有问题，没看到报错，把.deploy_git下的文件清理掉，重新跑几次也没解决
-接着看部署问题，hexo g --debug，文件生成也正常，无报错
-继续看生成的入口文件，发现index.htm
+general log的开启会增加Mysql的io压力，造
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2021/10/03/js/hexo/hexo-gitpage-404/#more" rel="contents">
+            <a class="btn" href="/2022/04/09/mysql/mysqlslap/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -364,8 +361,8 @@ Step 4 打开对应的Git page，发现404
             
               
                 
-                <a class="post-title-link" href="/2021/09/11/php/php_mysql_charset/" itemprop="url">
-                  一个环境引发的乱码问题
+                <a class="post-title-link" href="/2022/03/16/php/php-fpm-signal-exited/" itemprop="url">
+                  PHP-FPM 子进程不断重启exited on signal 11
                 </a>
               
             
@@ -378,8 +375,8 @@ Step 4 打开对应的Git page，发现404
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2021-09-11T18:13:00+08:00" content="2021-09-11">
-              2021-09-11
+            <time itemprop="dateCreated" datetime="2022-03-16T20:07:01+08:00" content="2022-03-16">
+              2022-03-16
             </time>
           </span>
 
@@ -425,15 +422,14 @@ Step 4 打开对应的Git page，发现404
       
         
           
-          
- 每个程序员多少都遇到过一些祖传代码，当代码能跑起来的时候并不可怕，可怕的是换了个环境，代码跑不起来了，这时脑里离不开这2个问题：”it can works ,why ?”  or  “it can`t works , why?”
-
-发现问题有这一段代码，在服务器A中，从Mysql查出来的中文字段是正常显示的，从服务器B中显示的却是???
-$sql = "SELECT * from m_user limit 10";$db = new MySQLi($host, $user, $pwd, $d
+          现象某台服务器请求状态码出现大量502，看所有php-fpm master进程不断重启
+定位排查检查发版检查对应时间是否有发版，检查了之后确实与发版时间吻合，但检查代码没看出问题，但多台服务器一起发布，只有一台出现问题，跟代码有关的概率很低，可以先排除代码问题
+看php-fpm 错误日志首先从配置文件找到错误日志路径：
+$ cat /usr/local/php/etc/php-fpm.conf | grep error_logerror_log = /data1/logs/php-fpm.log
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2021/09/11/php/php_mysql_charset/#more" rel="contents">
+            <a class="btn" href="/2022/03/16/php/php-fpm-signal-exited/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -476,8 +472,8 @@ $sql = "SELECT * from m_user limit 10";$db = new MySQLi($host, $user, $pwd, $d
             
               
                 
-                <a class="post-title-link" href="/2021/06/26/git/split-git-repository/" itemprop="url">
-                  拆分Git仓库并保存提交记录
+                <a class="post-title-link" href="/2022/03/13/golang/learn/error/" itemprop="url">
+                  Golang错误处理
                 </a>
               
             
@@ -490,8 +486,8 @@ $sql = "SELECT * from m_user limit 10";$db = new MySQLi($host, $user, $pwd, $d
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2021-06-26T22:48:38+08:00" content="2021-06-26">
-              2021-06-26
+            <time itemprop="dateCreated" datetime="2022-03-13T16:31:16+08:00" content="2022-03-13">
+              2022-03-13
             </time>
           </span>
 
@@ -504,8 +500,8 @@ $sql = "SELECT * from m_user limit 10";$db = new MySQLi($host, $user, $pwd, $d
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/golang/" itemprop="url" rel="index">
+                    <span itemprop="name">golang</span>
                   </a>
                 </span>
 
@@ -538,17 +534,16 @@ $sql = "SELECT * from m_user limit 10";$db = new MySQLi($host, $user, $pwd, $d
         
           
           
-分分合合是常态，大项目有时会有拆分的需求，当想拆分git项目，又想保留提交记录时，可以按下面流程操作
+golang编程中，错误处理估计是写得最多的代码，我们总结一下使用上的问题
 
-基本设定父项目为 https://github.com/xxx/demo.git
-父仓库目录：/demo
-当前子仓库目录：/demo/target_child
-目标是把target_child拆到新项目：https://github.com/xxx/target_child.git
-step1 clone 一份原仓库文件到本地，目录为目标文件夹​cd ~/git/code/​​git clo
+标准库 vs 第三方包pkg/errorserror是一个接口，实现了Error()方法，返回字符串
+type error interface &#123;	Error() string&#125;
+标准库errors标准库提供了简单的错误创建与处理，我们使用官方包errors简单新建一个错误
+package main import (	"errors"	"fmt")func main() &#123;	err :=
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2021/06/26/git/split-git-repository/#more" rel="contents">
+            <a class="btn" href="/2022/03/13/golang/learn/error/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -591,8 +586,8 @@ step1 clone 一份原仓库文件到本地，目录为目标文件夹​cd ~/git
             
               
                 
-                <a class="post-title-link" href="/2021/06/10/mysql/mysql-abs/" itemprop="url">
-                  mysql abs func
+                <a class="post-title-link" href="/2021/12/20/mysql/mysql-proxy/" itemprop="url">
+                  使用mysql中间件：mysql proxy
                 </a>
               
             
@@ -605,8 +600,8 @@ step1 clone 一份原仓库文件到本地，目录为目标文件夹​cd ~/git
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2021-06-10T23:15:47+08:00" content="2021-06-10">
-              2021-06-10
+            <time itemprop="dateCreated" datetime="2021-12-20T22:15:47+08:00" content="2021-12-20">
+              2021-12-20
             </time>
           </span>
 
@@ -653,17 +648,14 @@ step1 clone 一份原仓库文件到本地，目录为目标文件夹​cd ~/git
         
           
           
-ABS(number)
-Return the absolute value of a number
+mysql-proxy是mysql官方提供的mysql中间件服务，上游可接入若干个mysql-client，后端可连接若干个mysql-server，它使用mysql协议，任何连接mysql的上游无需任何更改即可迁移至mysql-proxy上。
 
-基本用法返回数字参数的绝对值
-SELECT ABS(-243.5);     ===&gt; 243.5
-无符号数字相减计算异常问题例子：创建用户表，年龄字段为非负
-CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'uid',  `age` int(10) unsigned NOT NU
+安装前往mysql官网，选择对应的版本，如我选择的是Linux平台的文件，下载到服务器：
+//解压tar -zxf mysql-proxy-0.8.5-linux-el6-x86-64bit.tar.gz//移动到mysql_proxysudo mv
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2021/06/10/mysql/mysql-abs/#more" rel="contents">
+            <a class="btn" href="/2021/12/20/mysql/mysql-proxy/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -706,8 +698,8 @@ CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'u
             
               
                 
-                <a class="post-title-link" href="/2019/04/23/golang/defer/" itemprop="url">
-                  GO学习笔记--defer篇
+                <a class="post-title-link" href="/2021/11/27/golang/docker/" itemprop="url">
+                  GO环境篇-从零开始的Docker环境搭建
                 </a>
               
             
@@ -720,8 +712,8 @@ CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'u
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2019-04-23T22:33:16+08:00" content="2019-04-23">
-              2019-04-23
+            <time itemprop="dateCreated" datetime="2021-11-27T10:33:16+08:00" content="2021-11-27">
+              2021-11-27
             </time>
           </span>
 
@@ -767,13 +759,20 @@ CREATE TABLE `user` (  `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'u
       
         
           
-          什么是deferdefer特别栈，后进先出
-什么场景下用defer程序员在编程的时候，经常需要打开一些资源，比如数据库连接、文件、锁等，这些资源需要在用完之后释放掉，否则会造成内存泄漏。
-func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(err, "\n")		return	&#125;	defer func() &#123;		fmt.Print("do close \n")		clo
+          
+从Dockerfile开始的环境搭建
+
+编写dockerfilestep1 明确dockerfile要做的事：
+选择环境包，如centos
+安装基本软件binutils/vim/gdb/git/wget等
+选择golang版本，下载，安装
+安装调试工具delve
+
+step2 把清单编写出来FROM centosRUN yum install binutils -y \    &amp;&amp; yum install vim -y \    &amp;&amp; yum install g
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2019/04/23/golang/defer/#more" rel="contents">
+            <a class="btn" href="/2021/11/27/golang/docker/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -800,7 +799,7 @@ func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -839,14 +838,14 @@ func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
@@ -897,7 +896,7 @@ func main ()&#123;	f,err := os.Open("test.txt")	if err != nil &#123;		fmt.Print(
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

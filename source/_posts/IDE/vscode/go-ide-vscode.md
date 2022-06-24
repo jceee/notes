@@ -1,6 +1,6 @@
 title: GO语言IDE篇--Vscode (Mac)  
 date: 2018-11-20 23:26:46
-tags: [go,ide]
+tags: [golang,ide]
 ---
 
 >工欲善其事，必先利其器
